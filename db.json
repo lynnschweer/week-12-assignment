@@ -1,3 +1,27 @@
 {
-  "reviews": []
+  "reviews": [
+    {
+      "id": 1,
+      "author": "Kate",
+      "text": "meh",
+      "stars": 3,
+      "movieId": 3
+    },
+    {
+      "id": 2,
+      "author": "Sam",
+      "text": "Average quality.",
+      "stars": 3,
+      "movieId": 3
+      
+    },
+    {
+      "id": 3,
+      "author": "Tom",
+      "text": "fantastic.",
+      "stars": 5,
+      "movieId": 3
+      
+    }
+  ]
 }
