@@ -13,6 +13,8 @@ const reviewTextarea = document.getElementById("review-textarea")
 const saveReviewButton = document.getElementById("save-review-button")
 
 //render a list of reviews
+//rendering means creating html elements and attaching them to the DOM
+//listening means attaching event listeners to elements
 function renderReviewList() {
     reviewsContainer.innerHTML = ""
     if(reviewList.length ===0) {
@@ -24,7 +26,9 @@ function renderReviewList() {
 }
 
 //render one review
-
+//render a single review by creating a div and appending it to the container
+//appening means to add to the end of the container
+//container means the element that holds the reviews
 function renderReview(review) {
     const reviewDiv = document.createElement("div")
     reviewDiv.className = "bg-light mb-3 pt-4"
@@ -57,6 +61,8 @@ function renderReview(review) {
 }
 
 //UPDATING
+//updating means changing the data in the form
+//updating means changing the data in the backend and frontend
 function renderReviewForm(reviewData) {
     reviewStarsSelect.value = reviewData.stars
     reviewTextarea.value= reviewData.text
@@ -64,6 +70,9 @@ function renderReviewForm(reviewData) {
 
 
 //after save button is clicked, either save an edit or create
+//await means wait for the function to finish before moving on
+//async means the function is asynchronous and will return a promise
+//a promise is a value that will be available in the future
 async function onSaveReviewClick(event) {
    event.preventDefault()
    const reviewData = {
@@ -97,7 +106,7 @@ renderReviewForm({stars: 1, text: ""})
    }
 
    //FETCHING
-
+//fetching means getting data from the backend/database/server
    async function fetchAllReviews() {
     const response = await fetch("http://localhost:3000/reviews")
     return response.json()
@@ -132,6 +141,8 @@ renderReviewForm({stars: 1, text: ""})
 
 
    //START UP
+   //this code runs when the page loads
+    //this code fetches the reviews and renders them
    async function startUp() {
     reviewList = await fetchAllReviews();
     console.log("Reviews fetched:", reviewList); // Check the data
